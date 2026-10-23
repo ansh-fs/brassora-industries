@@ -46,7 +46,7 @@ export function EnquiryForm({
       else if (raw && f.type === "tel" && !/^[+\d\s()-]{7,20}$/.test(raw)) errs[f.name] = "Enter a valid phone number";
       if (raw) lines.push(`${f.label}: ${raw}`);
     }
-    if (!fd.get("consent")) errs.consent = "Please agree so we can reply to you";
+    if (!fd.get("consent")) errs["consent"] = "Please agree so we can reply to you";
     setErrors(errs);
     if (Object.keys(errs).length) return;
     window.open(waLink(lines.join("\n")), "_blank", "noopener");
