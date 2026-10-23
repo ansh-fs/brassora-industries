@@ -91,7 +91,6 @@ function ProductPage() {
           <p className="mt-5 text-lg leading-relaxed text-foreground/85">{p.summary}</p>
           <p className="mt-3 leading-relaxed text-muted-foreground">{p.description}</p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link to="/enquiry" onClick={() => {}} className="hidden" />
             <a href={waLink(msg)} target="_blank" rel="noopener" className="inline-flex items-center gap-2 rounded-sm bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground hover:bg-primary/90">
               <MessageCircle className="h-4 w-4" /> Enquire on WhatsApp
             </a>
