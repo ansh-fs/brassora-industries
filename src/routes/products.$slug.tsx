@@ -76,7 +76,7 @@ function ProductPage() {
       </nav>
       <section className="container-x grid gap-12 py-10 lg:grid-cols-2">
         <div>
-          <ProductPhoto src={p.thumbs[active]} alt={`${shortName(p.name)} view ${active + 1}`} size="lg" className="aspect-square border border-border" />
+          <ProductPhoto src={p.thumbs[active] ?? ""} alt={`${shortName(p.name)} view ${active + 1}`} size="lg" className="aspect-square border border-border" />
           <div className="mt-3 flex flex-wrap gap-2">
             {p.thumbs.map((t, i) => (
               <button key={t} onClick={() => setActive(i)} aria-label={`View image ${i + 1}`} className={`border ${i === active ? "border-gold" : "border-border"}`}>

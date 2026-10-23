@@ -38,7 +38,7 @@ export function ProductCard({ p }: { p: Product }) {
   return (
     <article className="group flex flex-col border border-border bg-card transition-shadow hover:shadow-[0_18px_40px_-24px_var(--color-gold)]">
       <Link to="/products/$slug" params={{ slug: p.slug }} className="block">
-        <ProductPhoto src={p.thumbs[0]} alt={`${shortName(p.name)} — ${cat?.name}, Brassora Industries Moradabad`} className="aspect-[4/3] border-b border-border" />
+        <ProductPhoto src={p.thumbs[0] ?? ""} alt={`${shortName(p.name)} — ${cat?.name}, Brassora Industries Moradabad`} className="aspect-[4/3] border-b border-border" />
       </Link>
       <div className="flex flex-1 flex-col p-4">
         <div className="flex items-center justify-between text-[0.68rem] uppercase tracking-[0.14em] text-muted-foreground">

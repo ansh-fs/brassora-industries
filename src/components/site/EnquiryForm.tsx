@@ -12,7 +12,7 @@ export type Field = {
   options?: string[];
   placeholder?: string;
   full?: boolean;
-  defaultValue?: string;
+  defaultValue?: string | undefined;
 };
 
 const inputCls =
@@ -102,7 +102,7 @@ export function EnquiryForm({
             <input type="checkbox" name="consent" className="mt-0.5 h-4 w-4" />
             I agree that Brassora Industries may use these details only to reply to this enquiry.
           </label>
-          {errors.consent && <p className="mt-1 text-xs text-destructive">{errors.consent}</p>}
+          {errors["consent"] && <p className="mt-1 text-xs text-destructive">{errors["consent"]}</p>}
         </div>
       </div>
       <button type="submit" className="mt-6 inline-flex w-full items-center justify-center rounded-sm bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground hover:bg-primary/90 md:w-auto">

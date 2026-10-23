@@ -30,11 +30,10 @@ function Enquiry() {
   const send = () => {
     const lines = [
       "*Bulk quote request* — via brassora website",
-      name && `Name: ${name}`,
-      city && `City: ${city}`,
-      "",
+      name ? `Name: ${name}` : "",
+      city ? `City: ${city}` : "",
       ...list.map((p, i) => `${i + 1}. ${shortName(p.name)} (${p.sku}) — Qty: ${qty[p.sku] || p.moq}`),
-    ].filter((l) => l !== false && l !== "");
+    ].filter(Boolean);
     window.open(waLink(lines.join("\n")), "_blank", "noopener");
   };
 
@@ -53,7 +52,7 @@ function Enquiry() {
             <ul className="divide-y divide-border border-y border-border lg:col-span-2">
               {list.map((p) => (
                 <li key={p.sku} className="flex items-center gap-4 py-4">
-                  <ProductPhoto src={p.thumbs[0]} alt="" size="sm" className="h-20 w-20 shrink-0 border border-border" />
+                  <ProductPhoto src={p.thumbs[0] ?? ""} alt="" size="sm" className="h-20 w-20 shrink-0 border border-border" />
                   <div className="min-w-0 flex-1">
                     <Link to="/products/$slug" params={{ slug: p.slug }} className="font-serif text-lg hover:text-gold">{shortName(p.name)}</Link>
                     <p className="text-xs text-muted-foreground">{p.sku} · MOQ {p.moq}</p>
